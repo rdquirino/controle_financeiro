@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link href="css/theme-principal.css" rel="stylesheet" />
+	<link href="resources/css/estilo-principal.css" rel="stylesheet" />
+
+
+	<f:facet name="first">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+	</f:facet>
+	<title>Teste</title>
+
+	<h:outputScript name="js/layout.js" library="spark-layout" />
+
+	<ui:insert name="head" />
+</h:head>
+<h:body>
+
+			<h:form id="formCadastro">
+
+				<h2>Novo Cadastro</h2>
+				<h:panelGrid columns="2" cellpadding="5" id="panelCadastro"
+					columnClasses="label, value">
+
+					<h:outputText value="Nome:" />
+					<p:inputText id="nome" placeholder="Nome..."
+						value="#{usuarioController.usuario.nome}" />
+
+					<h:outputText value="Login:" />
+					<p:inputText placeholder="Login..."
+						value="#{usuarioController.usuario.login}" />
+
+					<h:outputText value="Senha:" />
+					<p:inputText placeholder="Senha"
+						value="#{usuarioController.usuario.senha}" />
+
+					<h:outputText value="Senha Novamente:" />
+					<p:inputText placeholder="Mesma senha.." />
+
+					<h:outputText value="Emai:" />
+					<p:inputText placeholder="Email"
+						value="#{usuarioController.usuario.email}" />
+
+					<h:outputText value="Você aceita os termo? " />
+					<p:scrollPanel style="width:500px;height:200px" mode="native">
+						<h:outputText
+							value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean blandit tortor a ipsum vehicula, in semper sapien auctor.
+							Nulla tempor eget est non consequat. Nulla sit amet lorem justo. Cras non tellus eros. Sed ultricies orci ut quam interdum fringilla. Nam vitae massa ac mi elementum mattis vel vitae sem. Ut eros ipsum, scelerisque a erat a, eleifend luctus nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean blandit tortor a ipsum vehicula, in semper sapien auctor.
+							Nulla tempor eget est non consequat. Nulla sit amet lorem justo. Cras non tellus eros. Sed ultricies orci ut quam interdum fringilla. Nam vitae massa ac mi elementum mattis vel vitae sem. Ut eros ipsum, scelerisque a erat a, eleifend luctus nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus." />
+					</p:scrollPanel>
+
+					<h:outputText value="Aceito" />
+					<p:selectBooleanCheckbox
+						value="#{usuarioController.usuario.termos}" />
+
+					
+				</h:panelGrid>
+				<br />
+				<h6>
+					<p:commandLink>Recuperar senha</p:commandLink>
+				</h6>
+
+			<p:commandButton value="Salvar" update="formCadastro"
+						action="#{usuarioController.inserir}" />
+			</h:form>
+
+
+
+
+
+
+	<!-- #######################   Inclusão dos estido do tema do primeFaces spark   #######################-->
+	<h:outputStylesheet name="css/core-layout.css" library="spark-layout" />
+	<h:outputStylesheet name="css/font-awesome.css" library="spark-layout" />
+	<h:outputStylesheet name="css/animate.css" library="spark-layout" />
+	<h:outputStylesheet name="css/spark-layout#{themeView.color}.css"
+		library="spark-layout" />
+	<!--###################################################################################################-->
+
+</h:body>
+</html>

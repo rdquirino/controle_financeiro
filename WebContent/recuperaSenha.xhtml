@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/resources/templates/template.xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+
+	<ui:define name="menu" />
+
+	<ui:define name="content">
+		
+		<div style="padding: 20px 0 20px 0;" align="center">
+			<h:form>
+				<div class="loginForm">
+					Email: <h:inputText id="emailInput" value="#{recuperaSenhaController.email}" size="50"/><br/><br/>
+					<h:commandButton value="Enviar" action="#{recuperaSenhaController.recuperarSenha}" styleClass="btn"/>
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+				</div>
+			</h:form>
+		</div>
+		
+	</ui:define>
+
+	<ui:define name="rodape" />
+
+</ui:composition>

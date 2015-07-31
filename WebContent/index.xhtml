@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link href="resources/css/conta/conta.css" rel="stylesheet" />
+	<link href="resources/css/theme-principal.css" rel="stylesheet" />
+	<link href="resources/css/index.css" rel="stylesheet" />
+	<link href="resources/css/estilo-principal.css" rel="stylesheet" />
+
+
+	<f:facet name="first">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+	</f:facet>
+	<title>Controle Financeiro</title>
+
+	<h:outputScript name="js/layout.js" library="spark-layout" />
+
+	<ui:insert name="head" />
+</h:head>
+<h:body>
+			
+		<div>
+			<h1></h1>		
+		</div>
+		<div>
+			<p:tabView id="tabViewIndex" orientation="left">
+			
+				<p:tab title="Cadastro de contas">
+					<p:tabView id="tabViewIndexConta">
+						<p:tab title="Controle de conta">
+							<ui:include src="paginas/conta/indexConta.xhtml" />
+						</p:tab>
+					</p:tabView>
+				</p:tab>
+					
+				<p:tab id="tabDespesa" title="Controle de despesas">
+					<p:tabView>
+						<p:tab title="Despesas">
+							<ui:include src="paginas/despesa/indexDespesa.xhtml"/>
+						</p:tab>
+					</p:tabView>
+				</p:tab>
+					
+			</p:tabView>
+		</div>
+		<h:form>
+			<p:dock position="bottom" proximity="50">
+			    <p:menuitem value="Calculadora" icon="resources/imagens/ico-calc.png" url="#"/>
+			    <p:menuitem value="Calendario" icon="resources/imagens/icon-calen.png" url="#"/>
+			    <p:menuitem value="Graficos" icon="resources/imagens/icon-graf.png" url="#"/>
+			    <p:menuitem value="Contas" icon="resources/imagens/icon-cont.png" url="#"/>
+			</p:dock>
+		</h:form>
+</h:body>
+</html>

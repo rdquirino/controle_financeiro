@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link href="css/theme-principal.css" rel="stylesheet" />
+	<link href="resources/css/estilo-principal.css" rel="stylesheet" />
+
+
+	<f:facet name="first">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+	</f:facet>
+	<title>Teste</title>
+
+	<h:outputScript name="js/layout.js" library="spark-layout" />
+
+	<ui:insert name="head" />
+</h:head>
+<h:body>
+
+	<div>
+		<div style="margin: auto auto auto auto; width: 40%; height: 900px;">
+
+			<h:form>
+
+
+				<div style="text-align: center; background-color: #F0F0F0; padding: 70px 50px 20px 10%; margin-top: 30%; border-radius: 10px;">
+
+					<p:outputLabel>Cadastro realizado com sucerso</p:outputLabel>
+					<img class="fotoLogin" src="resources/imagens/imgPerfil.png" />
+
+					<h:panelGrid columns="2" cellspacing="5"
+						columnClasses="label, value">
+
+						<p:outputLabel value="Login:" />
+						<p:inputText placeholder="Login" />
+
+						<p:outputLabel value="Senha:" />
+						<p:inputText placeholder="Senha" />
+
+
+
+					</h:panelGrid>
+					<br />
+					<p:commandButton value="Entrar" style="width:100%" />
+					<h6>
+						<p:commandLink>Recuperar senha</p:commandLink>
+					</h6>
+				</div>
+			</h:form>
+		</div>
+	</div>
+
+
+
+
+	<!-- #######################   Inclusão dos estido do tema do primeFaces spark   #######################-->
+	<h:outputStylesheet name="css/core-layout.css" library="spark-layout" />
+	<h:outputStylesheet name="css/font-awesome.css" library="spark-layout" />
+	<h:outputStylesheet name="css/animate.css" library="spark-layout" />
+	<h:outputStylesheet name="css/spark-layout#{themeView.color}.css"
+		library="spark-layout" />
+	<!--###################################################################################################-->
+
+</h:body>
+</html>

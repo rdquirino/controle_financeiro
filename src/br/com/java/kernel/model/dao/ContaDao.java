@@ -1,0 +1,8 @@
+package br.com.java.kernel.model.dao;
+
+import br.com.java.kernel.model.entity.Conta;
+
+public interface ContaDao  extends DaoGenerico<Conta, Integer>{
+	
+	
+}

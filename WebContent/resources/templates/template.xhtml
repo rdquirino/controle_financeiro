@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		
+		<link href="#{facesContext.externalContext.requestContextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="header">
+			<div id="logo">
+				<a href="#{facesContext.externalContext.requestContextPath}/index.jsf"><img src="#{facesContext.externalContext.requestContextPath}/resources/images/logo.jpg"   alt="" /></a>			
+			</div>	
+			<ui:insert name="menu">	
+				<ul>
+					<li><a href="#{facesContext.externalContext.requestContextPath}/home/home.jsf"><span>Home</span></a></li>
+					<li><a href="#{facesContext.externalContext.requestContextPath}/projetos/projetos.jsf"><span>Projetos</span></a></li>
+					<li><a href="#{facesContext.externalContext.requestContextPath}/chamados/chamados.jsf"><span>Chamados</span></a></li>
+					<li><a href="#{facesContext.externalContext.requestContextPath}/tarefas/tarefas.jsf"><span>Tarefas</span></a></li>
+					<li><a href="#{facesContext.externalContext.requestContextPath}/usuarios/usuarios.jsf"><span>Usuarios</span></a></li>
+					<li><a href="#{facesContext.externalContext.requestContextPath}/estatisticas/estatisticas.jsf"><span>Estatísticas</span></a></li>			
+					</ul>
+			</ui:insert>
+		</div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+
+		<ui:insert name="rodape">	
+        <div id="footer">
+			<div>
+				<div>
+					<h3>america</h3>
+					<ul>
+						<li>457-380-1654 main</li>				
+						<li>257-301-9417 toll free</li>
+					</ul>			
+				</div>		
+				<div>
+					<h3>europe</h3>
+					<ul>
+						<li>457-380-1654 main</li>				
+						<li>257-301-9417 toll free</li>
+					</ul>			
+				</div>	
+				<div>
+					<h3>canada</h3>
+					<ul>
+						<li>457-380-1654 main</li>				
+						<li>257-301-9417 toll free</li>
+					</ul>			
+				</div>	
+				<div>
+					<h3>middle east</h3>
+					<ul>
+						<li>457-380-1654 main</li>				
+						<li>257-301-9417 toll free</li>
+					</ul>			
+				</div>	
+				<div>
+					<h3>follow us:</h3>
+					<a class="facebook" href="http://facebook.com/javalininja" target="_blank">facebook</a>		
+					<a class="twitter" href="http://twitter.com/javalininja" target="_blank">twitter</a>
+				</div>	
+			</div>
+			<div>
+				<p>Copyright 2015. All rights reserved</p>
+			</div>
+		</div>
+		</ui:insert>
+    </h:body>
+
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+	
+	<!-- ######## UNIDADE DE PERSISTENCIA ######-->
+	
+	<persistence-unit name="bdJava" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<class>br.com.java.kernel.model.entity.generico.GenEntidade</class>
+		<class>br.com.java.kernel.model.entity.Usuario</class>
+		<class>br.com.java.kernel.model.entity.Perfil</class>
+		<class>br.com.java.kernel.model.entity.Tema</class>
+		<class>br.com.java.kernel.model.entity.Endereco</class>
+		<class>br.com.java.kernel.model.entity.Assunto</class>
+		<class>br.com.java.kernel.model.entity.CategoriaPerfil</class>
+		<class>br.com.java.kernel.model.entity.Conta</class>
+		<class>br.com.java.kernel.model.entity.Despesa</class>
+
+	<!-- ######## CONFIGURAÇÃO BANCO DE DADOS MYSQL ######-->
+		<properties>
+			<property name="hibernate.connection.username" value="root" />
+			<property name="hibernate.connection.password" value="" />
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/controle_fincanceiro" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />  
+			<property name="hibernate.connection.autoReconnect" value="true" />
+			<property name="hibernate.connection.autoReconnectForPools" value="true" />
+			<property name="hibernate.connection.provider_class"
+				value="org.hibernate.connection.C3P0ConnectionProvider" />
+
+			<property name="hibernate.c3p0.min_size" value="5" />
+			<property name="hibernate.c3p0.max_size" value="60" />
+			<property name="hibernate.c3p0.acquire_increment" value="5" />
+			<property name="hibernate.c3p0.timeout" value="21600" />
+			<property name="hibernate.c3p0.idle_test_period" value="120" />
+		</properties>
+	</persistence-unit>
+</persistence>

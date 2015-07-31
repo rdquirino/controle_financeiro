@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+				xmlns:h="http://java.sun.com/jsf/html"
+                template="/resources/templates/template.xhtml">
+
+
+    <ui:define name="content">
+        <div style="padding: 20px 0 20px 0;" align="center">
+	        <h:form>
+	        	<p id="msg"/> 
+	        	<h:panelGrid columns="2">
+	        		Nome: <h:inputText id="nome" value="#{usuarioController.usuario.nome}"/>
+	        		Login: <h:inputText id="login" value="#{usuarioController.usuario.login}"/>
+	        		Email: <h:inputText id="email" value="#{usuarioController.usuario.email}"/>
+	        		Senha: <h:inputSecret id="senha" value="#{usuarioController.usuario.senha}"/>
+	        		Repita a senha<h:inputSecret id="senha2" value="#{usuarioController.senha2}"/>
+	        	</h:panelGrid>
+	        	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+	        	<h:commandButton id="btnSubmit" styleClass="btn" value="Salvar" action="#{usuarioController.saveAction}"/>
+	        </h:form>
+    	</div>
+    </ui:define>
+
+</ui:composition>

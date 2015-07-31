@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<body>
+<di>
+	<div>
+		<h2>Controle de contas</h2>
+	
+	</div>
+
+
+<h:form prependId="false" id="formTabelaConta">
+			
+		<p:messages id="msg" showDetail="true" autoUpdate="true" showIcon="false" closable="true" />
+		<p:splitButton value="Opções" id="opcaoConta" icon="ui-icon-gear"  iconPos="ui-icon-gear" disabled="#{contaController.opcao}">
+			<p:menuitem value="Excluir" icon="ui-icon-trash" iconPos="ui-icon-trash" onclick="PF('dialogConfirmaExcluirConta').show()"/>
+			<p:menuitem value="Editar" icon="ui-icon-pencil" update="tabViewIndex:tabViewIndexConta:formEditarConta" iconPos="ui-icon-pencil" onclick="PF('dialogEditarConta').show()"/>
+		</p:splitButton>
+		
+		<p:splitButton id="mes" value="Mes">
+			<p:menuitem value="TODAS" actionListener="#{contaController.listaContaMes('todas')}"/>
+			<p:menuitem value="Janeiro" actionListener="#{contaController.listaContaMes('janeiro')}"/>
+			<p:menuitem value="Fevereiro"  actionListener="#{contaController.listaContaMes('fevereiro')}"/>
+			<p:menuitem value="Março" actionListener="#{contaController.listaContaMes('marco')}"/>
+			<p:menuitem value="Abril" actionListener="#{contaController.listaContaMes('abril')}"/>
+			<p:menuitem value="Maio" actionListener="#{contaController.listaContaMes('maio')}"/>
+			<p:menuitem value="Junho" actionListener="#{contaController.listaContaMes('junho')}"/>
+			<p:menuitem value="Julho" actionListener="#{contaController.listaContaMes('julho')}"/>
+			<p:menuitem value="Agosto" actionListener="#{contaController.listaContaMes('agosto')}"/>
+			<p:menuitem value="Setembro" actionListener="#{contaController.listaContaMes('setembro')}"/>
+			<p:menuitem value="Outubro" actionListener="#{contaController.listaContaMes('outubro')}"/>
+			<p:menuitem value="Novembro" actionListener="#{contaController.listaContaMes('novembro')}"/>
+			<p:menuitem value="Dezembro" actionListener="#{contaController.listaContaMes('dezembro')}"/>
+		</p:splitButton>
+		
+		<p/>
+		<p:panelGrid id="panelConta">
+			<p:column>
+				<p:dataTable id="dataTableConta" var="conta" scrollable="true"  rowStyleClass="#{conta.status eq false ? 'row-conta-off' : 'row-conta-on'}"
+					scrollHeight="300" selectionMode="single"
+					selection="#{contaController.contaSelecionada}"
+					rowKey="#{conta.idConta}" value="#{contaController.listaConta}">
+	
+
+					<p:ajax event="rowSelect" update="tabViewIndex:tabViewIndexConta:opcaoConta" listener="#{contaController.habilitarOpcao(false)}"/>
+					<p:ajax event="rowUnselect" update="tabViewIndex:tabViewIndexConta:opcaoConta" listener="#{contaController.habilitarOpcao(true)}" />
+					<f:facet name="header">
+					Lista de Contas
+				</f:facet>
+					
+					<p:column headerText="Descrição">
+						<h:outputText value="#{conta.descricao}" />
+					</p:column>
+
+					<p:column headerText="Valor">
+						<h:outputText value="#{conta.valorConta}" />
+					</p:column>
+
+					<p:column headerText="Valor Pago">
+						<h:outputText value="#{conta.valorPago}" />
+					</p:column>
+					
+					<p:column headerText="Total">
+						<h:outputText value="#{conta.valorConta - conta.valorPago}" />
+					</p:column>
+
+					<p:column headerText="Vencimento">
+						<h:outputText value="#{conta.dataVencimento}">
+							 <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03:00"/> 
+						</h:outputText>
+					</p:column>
+
+					<p:column headerText="status">
+							<p:graphicImage  style="width:20px; margin:auto 35% auto 35%" rendered="#{conta.status}" value="resources/imagens/icon-ok.png" />
+						
+							<p:graphicImage style="width:20px; margin:auto 35% auto 35%" rendered="#{!conta.status}" value="resources/imagens/icon-debito2.png" />
+					</p:column>
+					
+					
+				</p:dataTable>
+			</p:column>
+		</p:panelGrid>
+		<p/>
+		<p:commandButton value="Nova Conta" update="tabViewIndex:tabViewIndexConta:formInserirConta" oncomplete="PF('dialogInserirConta').show()" />
+		<h:outputText value=" Valor total em débito: #{contaController.valorToral}"/>
+		
+			<br/>
+			
+			
+	</h:form>
+	
+	<div style="text-align:right;">
+	<h:form>
+		<h:outputText id="relogio" value="#{sistemaController.dataHora}">
+			<f:convertDateTime pattern="dd-MMM-yyyy / HH:mm" timeZone="GMT-3" />
+		</h:outputText>
+		<p:poll interval="60" listener="#{sistemaController.relogio}"
+			update="relogio" />
+	
+	
+	</h:form>
+	</div>
+	
+		<!--XXXXXXXXXXXXXXXXX    DIALOG CONTA    XXXXXXXXXXXXXXXXXX-->
+		
+		<p:dialog header="Selecionar fornecedor" modal="true" closable="false" widgetVar="dialogInserirConta" width="850" styleClass="panel panel-primary">
+			<ui:include src="/paginas/conta/telaInserirConta.xhtml"/>
+		</p:dialog>
+		
+		
+		<p:dialog id="dialogEditarConta" widgetVar="dialogEditarConta">
+			<ui:include src="/paginas/conta/telaEditarConta.xhtml"/>
+		</p:dialog>
+		
+		<p:dialog id="dialogVisualizarConta" widgetVar="dialogVisualizarConta">
+			<ui:include src="/paginas/conta/telaVisualizarConta.xhtml"/>		
+		</p:dialog>
+		
+		
+		<!-- XXXXXXXXXXXXXXX  DIALOG EXCLUIR CONTA XXXXXXXXXXXXXXXXXXXX -->
+		
+		<p:dialog widgetVar="dialogConfirmaExcluirConta" modal="true" closable="false">
+			<h:outputText value="Deseja excluir ?"/>
+			<p/>
+			<h:panelGrid columns="2">
+				<p:commandButton value="Sim" update="formTabelaConta" action="#{contaController.excluir}" oncomplete="PF('dialogConfirmaExcluirConta').hide();"/>
+				
+				<p:commandButton value="Não" onclick="PF('dialogConfirmaExcluirConta').hide();"/>
+			
+			</h:panelGrid>
+		</p:dialog>
+		
+				<!-- XXXXXXXXXXXXXXX  DIALOG EDITAR CONTA XXXXXXXXXXXXXXXXXXXX -->
+</di>
+</body>	
+</html>

@@ -1,0 +1,44 @@
+/* Template by freewebsitetemplates.com */
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+body {
+	font-size: 14px;
+	margin:0;
+	padding: 0;	
+}
+h2{
+	font-family: 'Source Sans Pro', sans-serif;
+}
+	
+.ui-datatable-header{
+	background: #C4C4C4 -moz-linear-gradient(center top , rgba(94, 135, 176, 0.8), rgba(94, 135, 176, 0.8)) repeat scroll 0% 0%;
+	 background: #688EE0 -webkit-gradient(linear, left top, left bottom, from(rgba(94, 135, 176, 0.8)), to(rgba(94, 135, 176, 0.8)));
+}
+
+.ui-tabs .ui-tabs-nav{
+	background-color: #5E87B0;
+}
+
+.ui-tabs-left > .ui-tabs-nav{
+width: 20%;
+height: 600px;
+background-image: none;
+padding-top: 30px;
+line-height: 2.3;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+border: 1px solid rgb(189, 189, 189);
+background: rgb(104, 120, 165) -moz-linear-gradient(center top , rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)) repeat scroll 0% 0%;
+}
+
+.ui-menu, .ui-menu .ui-menu-child{
+border: 1px solid rgb(189, 189, 189);
+background: rgb(104, 120, 165) -moz-linear-gradient(center top , rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)) repeat scroll 0% 0%;
+}
+
+.ui-tabs .ui-tabs-nav {
+    background: #5E87B0 -moz-linear-gradient(center top , rgba(94, 135, 176, 0), rgba(94, 135, 176, 0)) repeat scroll 0% 0%;
+    
+    
+    
+    

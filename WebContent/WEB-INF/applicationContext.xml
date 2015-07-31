@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd">
+
+
+	<!-- Classe responsavel pela gestao das entidades -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="bdJava" />
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Identifica os beans anotados com @Service, @Repository, @Controller -->
+	<context:component-scan base-package="br.com.java.kernel.controller" />
+
+	<!-- Habilita a configuracao de beans via anotacoes sem a necessidade de 
+		usar PersistenceAnnotationBeanPostProcessor, AutowiredAnnotationBeanPostProcessor 
+		e etc -->
+	<context:annotation-config />
+	
+	<!-- Realiza o scanneamento das pastas indicadas para construção dos beans -->
+	<context:component-scan base-package="br.com.java.kernel.controller" />
+	
+	<context:component-scan base-package="br.com.java.kernel.model.dao" />
+	
+	<context:component-scan base-package="br.com.java.kernel.model.dao.impl" />
+	
+	<context:component-scan base-package="br.com.java.kernel.model.entity" />
+	
+	<context:component-scan base-package="br.com.java.kernel.model.servece" />
+	
+	<context:component-scan base-package="br.com.java.kernel.model.service.impl" />
+	
+	
+	<!-- Marcacao de transacoes atraves de anotacoes  -->
+    <tx:annotation-driven/>
+
+	<!-- Classe responsavel pela gestao das transacoes -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+		
+		
+<!-- 	bean responsavel pelo envio de emails -->
+	<!-- <bean id="emailUtil" class="br.com.java.kernel.util.EmailUtil" c:mailSender-ref="mailSender"/> -->
+
+<!-- 	configuracoes do email utilizado como remetente -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="username@gmail.com" />
+		<property name="password" value="password" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>
