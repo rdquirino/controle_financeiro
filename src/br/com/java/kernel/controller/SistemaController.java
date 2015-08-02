@@ -19,7 +19,14 @@ public class SistemaController {
 	}
 
 
-	
+	 public void actionPerformed(){  
+	       try{  
+	            Runtime.getRuntime().exec("calc"); //assim  
+	            Runtime.getRuntime().exec("C:\\Windows\\System32\\calc.exe"); //e assim  
+	       }catch(Exception es){  
+	            System.err.println("Deu pau!");  
+	       }  
+	 }  
 	
 	
 	

@@ -9,8 +9,18 @@
 	<link href="resources/css/theme-principal.css" rel="stylesheet" />
 	<link href="resources/css/index.css" rel="stylesheet" />
 	<link href="resources/css/estilo-principal.css" rel="stylesheet" />
-
-
+	<link href="resources/css/menuTop.css" rel="stylesheet" />
+	
+	<!-- ###################### STYLE BOOTSTRAP #################-->
+	<link href="resources/bootstrap-dist/css/bootstrap-theme.css" rel="stylesheet" />
+	<link href="resources/bootstrap-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+	<link href="resources/bootstrap-dist/css/bootstrap.css" rel="stylesheet" />
+	<link href="resources/bootstrap-dist/css/bootstrap.min.css" rel="stylesheet" />
+	
+	<script src="resources/bootstrap-dist/js/bootstrap.js"></script>
+	<script src="resources/bootstrap-dist/js/bootstrap.min.js"></script>
+	<script src="resources/bootstrap-dist/js/jquery.min.js"></script>
+	
 	<f:facet name="first">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -26,9 +36,10 @@
 </h:head>
 <h:body>
 			
-		<div>
-			<h1></h1>		
-		</div>
+		<!-- ############ MENU TOP ############# -->
+		<ui:include src="/menuTop.xhtml" />
+		
+		<!-- ############### CORPO DA PAGINA ########### -->
 		<div>
 			<p:tabView id="tabViewIndex" orientation="left">
 			
@@ -50,13 +61,20 @@
 					
 			</p:tabView>
 		</div>
+		
+		<!-- ############ MENU DOCK ############### -->
 		<h:form>
 			<p:dock position="bottom" proximity="50">
-			    <p:menuitem value="Calculadora" icon="resources/imagens/ico-calc.png" url="#"/>
+			    <p:menuitem value="Calculadora" action="#{sistemaController.actionPerformed()}" icon="resources/imagens/ico-calc.png"/>
 			    <p:menuitem value="Calendario" icon="resources/imagens/icon-calen.png" url="#"/>
 			    <p:menuitem value="Graficos" icon="resources/imagens/icon-graf.png" url="#"/>
 			    <p:menuitem value="Contas" icon="resources/imagens/icon-cont.png" url="#"/>
 			</p:dock>
 		</h:form>
+		
+		<h:outputStylesheet name="css/core-layout.css" library="spark-layout" />
+        <h:outputStylesheet name="css/font-awesome.css" library="spark-layout" />
+        <h:outputStylesheet name="css/animate.css" library="spark-layout" />
+       	<h:outputStylesheet name="css/spark-layout.css" library="spark-layout" />
 </h:body>
 </html>
