@@ -16,7 +16,7 @@
 
 <h:form prependId="false" id="formTabelaConta">
 			
-		<p:messages id="msg" showDetail="true" autoUpdate="true" showIcon="false" closable="true" />
+		<p:messages id="msg" showDetail="true" autoUpdate="true" showIcon="false" closable="true"  escape=""/>
 		<p:splitButton value="Opções" id="opcaoConta" icon="ui-icon-gear"  iconPos="ui-icon-gear" disabled="#{contaController.opcao}">
 			<p:menuitem value="Excluir" icon="ui-icon-trash" iconPos="ui-icon-trash" onclick="PF('dialogConfirmaExcluirConta').show()"/>
 			<p:menuitem value="Editar" icon="ui-icon-pencil" update="tabViewIndex:tabViewIndexConta:formEditarConta" iconPos="ui-icon-pencil" onclick="PF('dialogEditarConta').show()"/>
@@ -108,7 +108,7 @@
 	
 		<!--XXXXXXXXXXXXXXXXX    DIALOG CONTA    XXXXXXXXXXXXXXXXXX-->
 		
-		<p:dialog header="Selecionar fornecedor" modal="true" closable="false" widgetVar="dialogInserirConta" width="850" styleClass="panel panel-primary">
+		<p:dialog header="Cadastrar conta" modal="true" closable="false" widgetVar="dialogInserirConta" width="850" styleClass="panel panel-primary">
 			<ui:include src="/paginas/conta/telaInserirConta.xhtml"/>
 		</p:dialog>
 		

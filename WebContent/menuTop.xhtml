@@ -7,24 +7,109 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <body>
-	<div class="container-menuTop">
-		<div class="topMenu">
-			<div style="float: left; margin: 15px auto auto 40px;">
-				<h2>Controle Financeiro</h2>
+	<h:form prependId="false" id="formDeslogar">
+		<div id="layout-topbar" class="ShadowGray">
+			<div style="float: left; margin: 20px 20px">
+			<h2>Controle Financeiro</h2>
 			</div>
-			
-			<h:form id="formTabelaConta">
-				<p:megaMenu styleClass="megaMenuTop">
-					<p:submenu icon="fa fa-server white" >
-						<p:column>
-							<p:submenu label="Opções" >
-								<p:menuitem value=" Sair" icon="fa fa-close navyBlue" />
-							</p:submenu>
-						</p:column>
-					</p:submenu>
-				</p:megaMenu>
-			</h:form>
+			<div id="layout-topbar-indent">
+
+				<ul id="layout-topbar-menu">
+
+					<li><a href="#" class="Animated05 CursPointer"><i
+							class="fa fa-list"></i></a>
+
+						<ul style="margin-left: -45px;" class="Animated03 submenu">
+							<h:form>
+								<li><p:commandLink style="text-decoration: none"
+										onsuccess="window.location.reload()">
+										<h:outputText class="fa fa-dashboard blue " value=" Azul" />
+									</p:commandLink></li>
+								<li><p:commandLink style="text-decoration: none"
+										onsuccess="window.location.reload()">
+										<h:outputText class="fa fa-dashboard green " value=" Verde" />
+									</p:commandLink></li>
+								<li><p:commandLink style="text-decoration: none"
+										onsuccess="window.location.reload()">
+										<h:outputText class="fa fa-dashboard orange " value=" Laranja" />
+									</p:commandLink></li>
+								<li><p:commandLink style="text-decoration: none"
+										onsuccess="window.location.reload()">
+										<h:outputText class="fa fa-dashboard red " value=" Vermelho" />
+									</p:commandLink></li>
+							</h:form>
+						</ul></li>
+
+					<li class="fa fa-ellipsis-v menu-separator"></li>
+
+					<li><a href="#" class="Animated05 CursPointer"> <img
+							class="foto-perfil" src="resources/imagens/perfil.png" />
+					</a>
+
+						<ul style="width: 200px; margin-left: -45px;"
+							class="Animated03 submenu">
+							<h:form>
+								<li><p:commandLink style="text-decoration: none"
+										onsuccess="window.location.reload()">
+										<h:outputText class="fa fa-dashboard blue " value=" Azul" />
+									</p:commandLink></li>
+								<li><p:commandLink style="text-decoration: none"
+										onsuccess="window.location.reload()">
+										<h:outputText class="fa fa-dashboard green " value=" Verde" />
+									</p:commandLink></li>
+								<li><p:commandLink style="text-decoration: none"
+										onsuccess="window.location.reload()">
+										<h:outputText class="fa fa-dashboard orange " value=" Laranja" />
+									</p:commandLink></li>
+								<li><p:commandLink style="text-decoration: none"
+										onsuccess="window.location.reload()">
+										<h:outputText class="fa fa-dashboard red " value=" Vermelho" />
+									</p:commandLink></li>
+							</h:form>
+						</ul></li>
+					<li class="fa fa-ellipsis-v menu-separator"></li>
+					<li><a class="Animated05 CursPointer"><i
+							class="fa fa-bell animated swing infinite red"></i> Mensagens <span
+							class="notification-bubble BordRad3 animated rubberBand">22</span>
+							<i class="fa fa-chevron-down Fs14 Fright ShowOnMobile"></i></a>
+						<ul style="width: 200px; margin-left: -45px;"
+							class="Animated03 submenu">
+							<li><a href="#" class="Animated05"><i
+									class="fa fa-envelope Fs18 blue"></i> <span
+									class="Fright Fs16 TexAlRight">Brian Connely<span
+										class="Fs10 DispBlock">Sales Reports</span></span></a></li>
+							<li><a href="#" class="Animated05"><i
+									class="fa fa-envelope Fs18"></i> <span
+									class="Fright Fs16 TexAlRight">Jack O'Neill<span
+										class="Fs10 DispBlock">Last Meeting Notes</span></span></a></li>
+							<li><a href="#" class="Animated05"><i
+									class="fa fa-envelope Fs18 blue"></i> <span
+									class="Fright Fs16 TexAlRight">Tony Parker<span
+										class="Fs10 DispBlock">Web Site Visitors</span></span></a></li>
+							<li><a href="#" class="Animated05"> <i
+									class="fa fa-envelope Fs18 red animated infinite rubberBand">
+								</i> <span class="Fright Fs16 TexAlRight">Bob Ross <span
+										class="Fs10 DispBlock">IK Reports </span>
+								</span>
+							</a></li>
+							<li><a href="#" class="Animated05"><i
+									class="fa fa-envelope Fs18 orange"></i> <span
+									class="Fright Fs16 TexAlRight">Sarah White<span
+										class="Fs10 DispBlock">Marketing News</span></span></a></li>
+						</ul></li>
+
+					<li class="fa fa-ellipsis-v menu-separator"></li>
+
+					<li class="animated infinite rubberBand">
+						<a href="#" class="Animated05 CursPointer"> 
+							<div id="num-presente"><strong>2</strong></div>
+							<img style="width: 45px" class="foto-perfil" src="resources/imagens/presente.png" />
+						</a>
+					</li>
+
+				</ul>
+			</div>
 		</div>
-	</div>
+	</h:form>
 </body>
 </html>

@@ -18,3 +18,7 @@
 	 height: 130px;
 	 border-radius: 100px;
 }
+.ui-widget-header{
+	color: white;
+	text-shadow:none;
+}

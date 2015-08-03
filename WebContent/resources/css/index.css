@@ -16,6 +16,8 @@ h2{
 
 .ui-tabs .ui-tabs-nav{
 	background-color: #5E87B0;
+	font-size: 0.8em;
+	text-shadow: none;
 }
 
 .ui-tabs-left > .ui-tabs-nav{
