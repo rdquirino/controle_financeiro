@@ -8,3 +8,9 @@
 	color: blue;
 	font-size: 12px;
 }
+
+.calendario-filtro{
+	margin: 0px 15px 1px 1px;
+	outline: medium none;
+	padding: 4px;
+}
