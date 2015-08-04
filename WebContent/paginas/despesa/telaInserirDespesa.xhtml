@@ -9,21 +9,21 @@
 
 	<h:panelGrid>
 		<h:form id="formInserirDespesa">
-			<h:outputText value="Cadastror conta" />
+			<h:outputText value="Cadastror despesa" />
 			<div class="ui-grid ui-grid-responsive">
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-4">
 						<p:outputLabel value="* Descricao:" />
 						<br />
-						<p:inputText id="insDespesa" placeholder="conta" required="true" requiredMessage="Obrigatório *"
-							value="#{contaController.conta.descricao}" />
+						<p:inputText id="insDespesa" placeholder="despesa" required="true" requiredMessage="Obrigatório *"
+							value="#{despesaController.despesa.descricao}" />
 							<p:message for="insDespesa" />
 					</div>
 					<div class="ui-grid-col-4">
 						<p:outputLabel value="Valor:" />
 						<br />
 						<p:inputText id="insValor" placeholder="valo" required="true" requiredMessage="Obrigatório *"
-							value="#{contaController.conta.valorDespesa}" >
+							value="#{despesaController.despesa.valorDespesa}" >
 									<f:convertNumber pattern="#,##0.00"></f:convertNumber> 
 						</p:inputText>
 							<p:message for="insValor"/>
@@ -31,8 +31,8 @@
 					<div class="ui-grid-col-4">
 						<p:outputLabel value="Categoria:" />
 						<br />
-						<p:inputText placeholder="conta" 
-							value="#{contaController.conta.categoria}" />
+						<p:inputText placeholder="despesa" 
+							value="#{despesaController.despesa.categoria}" />
 					</div>
 				</div>
 				<p />
@@ -42,28 +42,21 @@
 						<p:outputLabel value="Valor pago:" />
 						<br />
 						<p:inputText placeholder="valor pago"
-							value="#{contaController.conta.valorPago}" />
+							value="#{despesaController.despesa.valorPago}" />
 					</div>
 					<div class="ui-grid-col-3">
 						<p:outputLabel value="Centro de Custo:" />
 						<br />
 						<p:inputText placeholder="centro custo"
-							value="#{contaController.conta.centroCusto}" />
+							value="#{despesaController.despesa.centroCusto}" />
 					</div>
 				</div>
 				<p />
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-4">
-						<p:outputLabel for="dataVencimento" value="Data venciemnto" />
-						<p:calendar id="dataVencimento" locale="de" navigator="true"
-							value="#{contaController.conta.dataVencimento}"
-							pattern="dd-MMM-yyyy" />
-					</div>
-
-					<div class="ui-grid-col-4">
-						<p:outputLabel for="dataPagamento" value="Data Pagamento" />
-						<p:calendar id="dataPagamento" locale="de" navigator="true"
-							value="#{contaController.conta.dataPagamento}"
+						<p:outputLabel for="dataDespesa" value="Data venciemnto" />
+						<p:calendar id="dataDespesa" locale="de" navigator="true"
+							value="#{despesaController.despesa.dataDespesa}"
 							pattern="dd-MMM-yyyy" />
 					</div>
 
@@ -72,7 +65,7 @@
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-4">
 						<h:panelGrid columns="3" cellpadding="10">
-						<p:commandButton value="Salvar" action="#{contaController.inserir}" />
+						<p:commandButton value="Salvar" action="#{despesaController.inserir}" />
 						<p:commandButton value="Limpar" />
 						<p:commandButton value="Sair" onclick="PF('dialogTelaCadastroDespesa').hide()"/>
 						</h:panelGrid>

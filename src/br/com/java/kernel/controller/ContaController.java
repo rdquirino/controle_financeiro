@@ -16,7 +16,7 @@ import br.com.java.kernel.model.entity.Conta;
 import br.com.java.kernel.model.service.ContaService;
 
 @Controller(value="contaController")
-@Scope("request")
+@Scope("session")
 public class ContaController {
 
 	
@@ -39,12 +39,12 @@ public class ContaController {
 	
 	private Double valorToral= 0.0;
 	
-	@PostConstruct
+/*	@PostConstruct
 	public void init(){
 		
 		listar();
 	}
-	
+	*/
 	public void inserir() {
 		
 		contaService.salvar(conta);
@@ -60,7 +60,7 @@ public class ContaController {
 	}
 	
 	public void excluir() {
-		contaService.excluir(contaSelecionada);
+		contaService.excluir(getContaSelecionada());
 		listaConta = contaService.listarTodos();
 		valorToral = valorToral - contaSelecionada.getValorConta();
 		RequestContext.getCurrentInstance().update("tabViewIndex:tabConta:formTabelaConta");

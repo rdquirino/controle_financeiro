@@ -7,13 +7,110 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <body>
+<div>
 	<div>
-	
+		<h3>Controle de Despesas</h3>
 	
 	</div>
 
 
+<h:form prependId="false" id="formTabelaDespesa">
+		
+		<p/>
+		<p:messages id="msg" showDetail="true" autoUpdate="true" showIcon="false" closable="true"  escape=""/>
+		<p:splitButton value="Opções" id="opcaoDespesa" icon="ui-icon-gear"  iconPos="ui-icon-gear" disabled="#{despesaController.opcao}">
+			<p:menuitem value="Excluir" icon="ui-icon-trash" iconPos="ui-icon-trash" onclick="PF('dialogConfirmaExcluirDespesa').show()"/>
+			<p:menuitem value="Editar" icon="ui-icon-pencil" update="tabViewIndex:tabViewIndexDespesa:formEditarDespesa" iconPos="ui-icon-pencil" onclick="PF('dialogEditarDespesa').show()"/>
+		</p:splitButton>
+		
+		
+		<p:panelGrid id="panelDespesa">
+			<p:column>
+				<p:dataTable id="dataTableDespesa" var="despesa" scrollable="true"
+					scrollHeight="300" selectionMode="single"
+					selection="#{despesaController.despesaSelecionada}"
+					rowKey="#{despesa.idDespesa}" value="#{despesaController.listaDespesa}">
+	
+
+					<p:ajax event="rowSelect" update="tabViewIndex:tabViewIndexDespesa:opcaoDespesa" listener="#{despesaController.habilitarOpcao(false)}"/>
+					<p:ajax event="rowUnselect" update="tabViewIndex:tabViewIndexDespesa:opcaoDespesa" listener="#{despesaController.habilitarOpcao(true)}" />
+					<f:facet name="header">
+					Lista de Despesas
+				</f:facet>
+					
+					<p:column headerText="Descrição">
+						<h:outputText value="#{despesa.descricao}" />
+					</p:column>
+
+					<p:column headerText="Valor">
+						<h:outputText value="#{despesa.valorDespesa}" />
+					</p:column>
+					
+					<p:column headerText="Centro de custo">
+						<h:outputText value="teste-centro" />
+					</p:column>
+
+					<p:column headerText="Data da despesa">
+						<h:outputText value="#{despesa.dataDespesa}">
+							 <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03:00"/> 
+						</h:outputText>
+					</p:column>
+
+				</p:dataTable>
+			</p:column>
+		</p:panelGrid>
+		<p/>
+		<p:commandButton value="Nova Despesa" oncomplete="PF('dialogInserirDespesa').show()" />
+		<h:outputText value=" Valor total em débito: #{despesaController.valorToral}"/>
+		
+			<br/>
 			
+			
+	</h:form>
+	
+	<div style="text-align:right;">
+	<h:form>
+		<h:outputText id="relogio" value="#{sistemaController.dataHora}">
+			<f:convertDateTime pattern="dd-MMM-yyyy / HH:mm" timeZone="GMT-3" />
+		</h:outputText>
+		<p:poll interval="60" listener="#{sistemaController.relogio}"
+			update="relogio" />
+	
+	
+	</h:form>
+	</div>
+	
+		<!--XXXXXXXXXXXXXXXXX    DIALOG CONTA    XXXXXXXXXXXXXXXXXX-->
+		
+		<p:dialog header="Cadastrar despesa" modal="true" closable="false" widgetVar="dialogInserirDespesa" width="850" styleClass="panel panel-primary">
+			<ui:include src="/paginas/despesa/telaInserirDespesa.xhtml"/>
+		</p:dialog>
+		
+		
+		<p:dialog id="dialogEditarDespesa" widgetVar="dialogEditarDespesa">
+			<ui:include src="/paginas/despesa/telaEditarDespesa.xhtml"/>
+		</p:dialog>
+		
+		<p:dialog id="dialogVisualizarDespesa" widgetVar="dialogVisualizarDespesa">
+			<ui:include src="/paginas/despesa/telaVisualizarDespesa.xhtml"/>		
+		</p:dialog>
+		
+		
+		<!-- XXXXXXXXXXXXXXX  DIALOG EXCLUIR CONTA XXXXXXXXXXXXXXXXXXXX -->
+		
+		<p:dialog widgetVar="dialogConfirmaExcluirDespesa" modal="true" closable="false">
+			<h:outputText value="Deseja excluir ?"/>
+			<p/>
+			<h:panelGrid columns="2">
+				<p:commandButton value="Sim" update="formTabelaDespesa" action="#{despesaController.excluir}" oncomplete="PF('dialogConfirmaExcluirDespesa').hide();"/>
+				
+				<p:commandButton value="Não" onclick="PF('dialogConfirmaExcluirDespesa').hide();"/>
+			
+			</h:panelGrid>
+		</p:dialog>
+		
+				<!-- XXXXXXXXXXXXXXX  DIALOG EDITAR CONTA XXXXXXXXXXXXXXXXXXXX -->
+</div>
 		
 
 </body>	

@@ -15,7 +15,7 @@ import br.com.java.kernel.model.entity.Despesa;
 import br.com.java.kernel.model.service.DespesaService;
 
 @Controller(value="despesaController")
-@Scope("request")
+@Scope("session")
 public class DespesaController {
 
 	

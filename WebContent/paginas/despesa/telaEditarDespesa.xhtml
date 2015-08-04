@@ -10,77 +10,74 @@
 
 
 
-		<h:form id="formEditarDespesa">
-			<h:outputText value="Cadastror conta" />
-			<div class="ui-grid ui-grid-responsive">
-				<div class="ui-grid-row">
-					<div class="ui-grid-col-4">
-					<h:inputHidden value="#{contaController.contaSelecionada.idDespesa}" />
-						
-						<p:outputLabel for="edtDespesa" value="Descrição:" />
-						<p:inputText id="edtDespesa" placeholder="conta" required="true" requiredMessage="Obrigatório *"
-							value="#{contaController.contaSelecionada.descricao}" />
-							<p:message for="edtDespesa" />
-					</div>
-					<div class="ui-grid-col-4">
-						<p:outputLabel value="Valor:" />
-						<br />
-						<p:inputText id="edtValor" placeholder="valo" required="true" requiredMessage="Obrigatório *"
-							value="#{contaController.contaSelecionada.valorDespesa}" />
-							<p:message for="edtValor"/>
-					</div>
-					<div class="ui-grid-col-4">
-						<p:outputLabel value="Categoria:" />
-						<br />
-						<p:inputText placeholder="conta" 
-							value="#{contaController.contaSelecionada.categoria}" />
-					</div>
-				</div>
-				<p />
-				<div class="ui-grid-row">
+	<h:form id="formEditarDespesa">
+		<h:outputText value="Cadastror despesa" />
+		<div class="ui-grid ui-grid-responsive">
+			<div class="ui-grid-row">
+				<div class="ui-grid-col-4">
+					<h:inputHidden
+						value="#{despesaController.despesaSelecionada.idDespesa}" />
 
-					<div class="ui-grid-col-4">
-						<p:outputLabel value="Valor pago:" />
-						<br />
-						<p:inputText placeholder="valor pago"
-							value="#{contaController.contaSelecionada.valorPago}" />
-					</div>
-					<div class="ui-grid-col-3">
-						<p:outputLabel value="Centro de Custo:" />
-						<br />
-						<p:inputText placeholder="centro custo"
-							value="#{contaController.contaSelecionada.centroCusto}" />
-					</div>
+					<p:outputLabel for="edtDespesa" value="Descrição:" />
+					<p:inputText id="edtDespesa" placeholder="despesa" required="true"
+						requiredMessage="Obrigatório *"
+						value="#{despesaController.despesaSelecionada.descricao}" />
+					<p:message for="edtDespesa" />
 				</div>
-				<p />
-				<div class="ui-grid-row">
-					<div class="ui-grid-col-4">
-						<p:outputLabel for="edtDataVencimento" value="Data venciemnto" />
-						<p:calendar id="edtDataVencimento" locale="de" navigator="true"
-							value="#{contaController.contaSelecionada.dataVencimento}"
-							pattern="dd-MMM-yyyy" />
-					</div>
-
-					<div class="ui-grid-col-4">
-						<p:outputLabel for="edtDataPagamento" value="Data Pagamento" />
-						<p:calendar id="edtDataPagamento" locale="de" navigator="true"
-							value="#{contaController.contaSelecionada.dataPagamento}"
-							pattern="dd-MMM-yyyy" />
-					</div>
-
+				<div class="ui-grid-col-4">
+					<p:outputLabel value="Valor:" />
+					<br />
+					<p:inputText id="edtValor" placeholder="valo" required="true"
+						requiredMessage="Obrigatório *"
+						value="#{despesaController.despesaSelecionada.valorDespesa}" />
+					<p:message for="edtValor" />
 				</div>
-				<p />
-				<h:panelGrid columns="2" cellpadding="10">
-					<p:commandButton value="Alterar" update="tabViewIndex" oncomplete="PF('dialogEditarDespesa').hide()"
-							action="#{contaController.alterar}"
-							 />
-						<p:commandButton value="Sair" update=":tabViewIndex:formTabelaDespesa" oncomplete="PF('dialogEditarDespesa').hide()"/>
-				
-				</h:panelGrid>
+				<div class="ui-grid-col-4">
+					<p:outputLabel value="Categoria:" />
+					<br />
+					<p:inputText placeholder="despesa"
+						value="#{despesaController.despesaSelecionada.categoria}" />
+				</div>
+			</div>
+			<p />
+			<div class="ui-grid-row">
+
+				<div class="ui-grid-col-4">
+					<p:outputLabel value="Valor pago:" />
+					<br />
+					<p:inputText placeholder="valor pago"
+						value="#{despesaController.despesaSelecionada.valorPago}" />
+				</div>
+				<div class="ui-grid-col-3">
+					<p:outputLabel value="Centro de Custo:" />
+					<br />
+					<p:inputText placeholder="centro custo"
+						value="#{despesaController.despesaSelecionada.centroCusto}" />
+				</div>
+			</div>
+			<p />
+			<div class="ui-grid-row">
+				<div class="ui-grid-col-4">
+					<p:outputLabel for="edtDataVencimento" value="Data venciemnto" />
+					<p:calendar id="edtDataVencimento" locale="de" navigator="true"
+						value="#{despesaController.despesaSelecionada.dataDespesa}"
+						pattern="dd-MMM-yyyy" />
+				</div>
 
 			</div>
+			<p />
+			<h:panelGrid columns="2" cellpadding="10">
+				<p:commandButton value="Alterar" update="tabViewIndex"
+					oncomplete="PF('dialogEditarDespesa').hide()"
+					action="#{despesaController.alterar}" />
+				<p:commandButton value="Sair"
+					oncomplete="PF('dialogEditarDespesa').hide()" />
 
-		</h:form>
+			</h:panelGrid>
+
+		</div>
+
+	</h:form>
 
 </h:body>
 </html>
