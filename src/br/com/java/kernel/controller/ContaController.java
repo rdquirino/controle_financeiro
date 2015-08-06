@@ -1,9 +1,7 @@
 package br.com.java.kernel.controller;
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
@@ -15,7 +13,7 @@ import org.springframework.stereotype.Controller;
 import br.com.java.kernel.model.entity.Conta;
 import br.com.java.kernel.model.service.ContaService;
 
-@Controller(value="contaController")
+@Controller
 @Scope("session")
 public class ContaController {
 

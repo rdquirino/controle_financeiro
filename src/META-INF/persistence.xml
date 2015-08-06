@@ -9,12 +9,9 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
 		<class>br.com.java.kernel.model.entity.generico.GenEntidade</class>
-		<class>br.com.java.kernel.model.entity.Usuario</class>
-		<class>br.com.java.kernel.model.entity.Perfil</class>
-		<class>br.com.java.kernel.model.entity.Tema</class>
+		<class>br.com.java.kernel.model.entity.seguranca.Usuario</class>
+		<class>br.com.java.kernel.model.entity.seguranca.Perfil</class>
 		<class>br.com.java.kernel.model.entity.Endereco</class>
-		<class>br.com.java.kernel.model.entity.Assunto</class>
-		<class>br.com.java.kernel.model.entity.CategoriaPerfil</class>
 		<class>br.com.java.kernel.model.entity.Conta</class>
 		<class>br.com.java.kernel.model.entity.Despesa</class>
 

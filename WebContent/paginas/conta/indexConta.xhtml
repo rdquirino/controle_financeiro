@@ -16,33 +16,75 @@
 			</div>
 
 				<div class="ui-grid-col-6">
-					<div style="padding-left: 10px;">
-					<h:panelGrid columns="30" cellpadding="50" rendered="false" >
-						<p:column>
-							<p:outputLabel for="teste5" value="De: " />
-							<p:calendar id="teste4" size="6" styleClass="calendario-filtro"
-								value="#{contaController.conta.dataVencimento}" />
-						</p:column>
-						<p:column>
-							<p:outputLabel for="teste5" value="Até: " />
-							<p:calendar id="teste5" size="6" styleClass="calendario-filtro"
-								value="#{contaController.conta.dataVencimento}" />
-						</p:column>
-						<p:commandButton value="Filtrar" />
-					</h:panelGrid>
+					<p:panel>
+					<div style="padding-left: 5px; float: left;">
+						
+							<h:panelGrid columns="30" cellpadding="50" rendered="true">
+								<p:column>
+									<p:outputLabel for="teste5" value="De: " />
+									<p:calendar id="teste4" size="6" styleClass="calendario-filtro"
+										value="#{contaController.conta.dataVencimento}" />
+								</p:column>
+								<p:column>
+									<p:outputLabel for="teste5" value="Até: " />
+									<p:calendar id="teste5" size="6" styleClass="calendario-filtro"
+										value="#{contaController.conta.dataVencimento}" />
+								</p:column>
+							</h:panelGrid>
+
+							<p:splitButton id="mes" value="Mes" rendered="false">
+								<p:menuitem value="TODAS"
+									actionListener="#{contaController.listaContaMes('todas')}" />
+								<p:menuitem value="Janeiro"
+									actionListener="#{contaController.listaContaMes('janeiro')}" />
+								<p:menuitem value="Fevereiro"
+									actionListener="#{contaController.listaContaMes('fevereiro')}" />
+								<p:menuitem value="Março"
+									actionListener="#{contaController.listaContaMes('marco')}" />
+								<p:menuitem value="Abril"
+									actionListener="#{contaController.listaContaMes('abril')}" />
+								<p:menuitem value="Maio"
+									actionListener="#{contaController.listaContaMes('maio')}" />
+								<p:menuitem value="Junho"
+									actionListener="#{contaController.listaContaMes('junho')}" />
+								<p:menuitem value="Julho"
+									actionListener="#{contaController.listaContaMes('julho')}" />
+								<p:menuitem value="Agosto"
+									actionListener="#{contaController.listaContaMes('agosto')}" />
+								<p:menuitem value="Setembro"
+									actionListener="#{contaController.listaContaMes('setembro')}" />
+								<p:menuitem value="Outubro"
+									actionListener="#{contaController.listaContaMes('outubro')}" />
+								<p:menuitem value="Novembro"
+									actionListener="#{contaController.listaContaMes('novembro')}" />
+								<p:menuitem value="Dezembro"
+									actionListener="#{contaController.listaContaMes('dezembro')}" />
+							</p:splitButton>
+
+					
 					</div>
-					<div style=" text-align: right;">
-						<p:splitButton value="Filtrar" id="opcaoFiltro"	iconPos="ui-icon-gear" >
-							<p:menuitem value="Mês" icon="fa fa-search" iconPos="ui-icon-trash"
+
+					<div style="text-align: right;">
+						<p:splitButton value="Filtrar" id="opcaoFiltro"
+							iconPos="ui-icon-gear">
+							<p:menuitem value="Mês" icon="fa fa-search"
+								iconPos="ui-icon-trash"
 								onclick="PF('dialogConfirmaExcluirConta').show()" />
-							<p:menuitem value="Ultimos 15 dias" icon="fa fa-search" update="tabViewIndex:tabViewIndexConta:formEditarConta"
-								iconPos="ui-icon-pencil" onclick="PF('dialogEditarConta').show()" />
-							<p:menuitem value="De/Até" icon="fa fa-search" update="tabViewIndex:tabViewIndexConta:formEditarConta"
-								iconPos="ui-icon-pencil" onclick="PF('dialogEditarConta').show()" />
-							<p:menuitem value="Todas" icon="fa fa-search" update="tabViewIndex:tabViewIndexConta:formEditarConta"
-								iconPos="ui-icon-pencil" onclick="PF('dialogEditarConta').show()" />
+							<p:menuitem value="Ultimos 15 dias" icon="fa fa-search"
+								update="tabViewIndex:tabViewIndexConta:formEditarConta"
+								iconPos="ui-icon-pencil"
+								onclick="PF('dialogEditarConta').show()" />
+							<p:menuitem value="De/Até" icon="fa fa-search"
+								update="tabViewIndex:tabViewIndexConta:formEditarConta"
+								iconPos="ui-icon-pencil"
+								onclick="PF('dialogEditarConta').show()" />
+							<p:menuitem value="Todas" icon="fa fa-search"
+								update="tabViewIndex:tabViewIndexConta:formEditarConta"
+								iconPos="ui-icon-pencil"
+								onclick="PF('dialogEditarConta').show()" />
 						</p:splitButton>
 					</div>
+					</p:panel>
 
 				</div>
 			</div>
@@ -69,36 +111,11 @@
 			<p:commandButton value="Nova Conta"
 				update="tabViewIndex:tabViewIndexConta:formInserirConta"
 				oncomplete="PF('dialogInserirConta').show()" />
-
-			<p:splitButton id="mes" value="Mes" rendered="false">
-				<p:menuitem value="TODAS"
-					actionListener="#{contaController.listaContaMes('todas')}" />
-				<p:menuitem value="Janeiro"
-					actionListener="#{contaController.listaContaMes('janeiro')}" />
-				<p:menuitem value="Fevereiro"
-					actionListener="#{contaController.listaContaMes('fevereiro')}" />
-				<p:menuitem value="Março"
-					actionListener="#{contaController.listaContaMes('marco')}" />
-				<p:menuitem value="Abril"
-					actionListener="#{contaController.listaContaMes('abril')}" />
-				<p:menuitem value="Maio"
-					actionListener="#{contaController.listaContaMes('maio')}" />
-				<p:menuitem value="Junho"
-					actionListener="#{contaController.listaContaMes('junho')}" />
-				<p:menuitem value="Julho"
-					actionListener="#{contaController.listaContaMes('julho')}" />
-				<p:menuitem value="Agosto"
-					actionListener="#{contaController.listaContaMes('agosto')}" />
-				<p:menuitem value="Setembro"
-					actionListener="#{contaController.listaContaMes('setembro')}" />
-				<p:menuitem value="Outubro"
-					actionListener="#{contaController.listaContaMes('outubro')}" />
-				<p:menuitem value="Novembro"
-					actionListener="#{contaController.listaContaMes('novembro')}" />
-				<p:menuitem value="Dezembro"
-					actionListener="#{contaController.listaContaMes('dezembro')}" />
-			</p:splitButton>
-
+						<div style="float: right;">
+				<p:commandLink>
+				    <p:graphicImage style="width:45px; margin:auto 35% auto 35%" value="resources/imagens/info-green.png" />
+				</p:commandLink>
+			</div>
 			<p />
 			<p:panelGrid id="panelConta">
 				<p:column>

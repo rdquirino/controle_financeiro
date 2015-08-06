@@ -1,6 +1,6 @@
 package br.com.java.kernel.model.service;
 
-import br.com.java.kernel.model.entity.Usuario;
+import br.com.java.kernel.model.entity.seguranca.Usuario;
 
 
 public interface UsuarioService {

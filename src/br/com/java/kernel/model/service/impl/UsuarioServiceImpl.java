@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.java.kernel.model.dao.DaoGenerico;
 import br.com.java.kernel.model.dao.UsuarioDao;
-import br.com.java.kernel.model.entity.Usuario;
+import br.com.java.kernel.model.entity.seguranca.Usuario;
 import br.com.java.kernel.model.service.UsuarioService;
 
 @Component

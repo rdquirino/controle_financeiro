@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import br.com.java.kernel.model.entity.Usuario;
+import br.com.java.kernel.model.entity.seguranca.Usuario;
 import br.com.java.kernel.model.service.UsuarioService;
 
 @Controller(value="usuarioController")
