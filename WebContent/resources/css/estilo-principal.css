@@ -1,24 +1,94 @@
+@import url(http://fonts.googleapis.com/css?family=Quicksand:300);
+
 .panel-login {
 	width: 40%;
 	float: right;
 	height: 900px;
 }
 
-.formLogin {
-	text-align:center;
-	background-color:#F0F0F0;
-	padding: 70px 50px 20px 20%;
-	margin-top: 30%;
-	border-radius:10px;
+.ui-widget-header {
+	color: white;
+	text-shadow: none;
 }
 
-.fotoLogin{
+h3{
+	color:#243A51;
+}
+div#div-container {
 	
-	 width: 130px;
-	 height: 130px;
-	 border-radius: 100px;
 }
-.ui-widget-header{
-	color: white;
-	text-shadow:none;
+
+div#div-sub-container {
+	padding: 20px;
+	background-color: #2A97EB;
+	
 }
+
+div#div-titulo-principal {
+	color:#243A51;
+	padding: 30px;
+	text-align: center;
+	background: #D4D4D4 -moz-linear-gradient(center top , rgba(45, 151, 235, 1.5), rgba(255, 255, 255, 1.5)) repeat scroll 0% 0%;
+}
+
+.img-perfil {
+	width: 130px;
+	border-radius: 200px;
+}
+
+div#div-img-perfil-login {
+	padding: 10px;
+	padding-bottom: 40px;
+	text-align: center;
+}
+
+div#div-corpo-pagina {
+	padding: 10px;
+}
+
+div#div-conteudo-info {
+	width: 85%;
+	font-family: ‘Metrophobic’, Arial, serif;
+	font-weight: 0;
+	font-size: 22px;
+	color: #9A98A7;
+	line-height: 28px;
+	padding: 10px;
+}
+.div-botao{
+	color:white;
+	padding:10px;
+	text-align:center;
+	border: solid 2px white;
+	width: 150px;
+	float: right;
+}
+
+.div-botao:HOVER{
+	text-shadow: 2px 1px #FFFFFF;
+	color:#646C80;
+	padding:11px;
+	background-color:#4CEA0C;
+	box-shadow: 0px 0px 8px 2px rgba(255,255,255,1);
+	
+}
+.BlueButton .ui-button-text{background-color:#2A97EB;
+
+color: white;
+padding: 10px;
+font-family: ‘Metrophobic’, Arial, serif;
+border: solid 1px #2A97EB;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+	border: 1px solid #D5D5D5;
+}
+
+.footer {
+	font-size:0.8em;
+	text-align:center;
+	padding:12px;
+	bottom: 0px; width: 100%;
+	background-color:rgba(162, 162, 162, 0.2);"
+}
+
+

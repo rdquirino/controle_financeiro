@@ -86,7 +86,7 @@
 
 
 /*BODY*/
-body{margin:0px; background-image:url("#{resource['spark-layout:images/background.png']}"); background-repeat:repeat; background-position:center; background-color:#C3CCD5; 
+body{margin:0px; background-position:center; background-color:#ffffff; 
      background-attachment:fixed; font-family: 'ralewaymedium';}
 
 /* menu mask*/

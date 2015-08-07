@@ -25,39 +25,62 @@
 </h:head>
 <h:body>
 
-	<div>
-		<div style="margin: auto auto auto auto; width: 40%; height: 900px;">
-
-			<h:form>
-
-
-				<div style="text-align: center; background-color: #F0F0F0; padding: 70px 50px 20px 10%; margin-top: 30%; border-radius: 10px;">
-
-					<p:outputLabel>Cadastro realizado com sucerso</p:outputLabel>
-					<img class="fotoLogin" src="resources/imagens/imgPerfil.png" />
-
-					<h:panelGrid columns="2" cellspacing="5"
-						columnClasses="label, value">
-
-						<p:outputLabel value="Login:" />
-						<p:inputText placeholder="Login" />
-
-						<p:outputLabel value="Senha:" />
-						<p:inputText placeholder="Senha" />
-
-
-
-					</h:panelGrid>
-					<br />
-					<p:commandButton value="Entrar" style="width:100%" />
-					<h6>
-						<p:commandLink>Recuperar senha</p:commandLink>
-					</h6>
-				</div>
-			</h:form>
+	<div id="div-container">
+		<div id="div-sub-container">
+			<p:commandLink>
+			<div class="div-botao">
+				Novo Cadastro
+			</div>
+			</p:commandLink>
 		</div>
-	</div>
+		<div id="div-titulo-principal">
+			<h1>Controle Financeiro Online</h1>
+		</div>
+		
+		<div id="div-corpo-pagina">
+			<div class="ui-grid ui-grid-responsive">
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-8">
+						<div id="div-conteudo-info">
+							<p><h3>Como Funciona?</h3></p>
+							<p>O Contas Online é um sistema para controle financeiro online, oferecido
+							 gratuitamente ou através de assinaturas de planos. O sistema controla todas as suas 
+							 despesas e receitas, permitindo uma análise completa dos seus gastos para traçar melhor
+							 seus objetivos financeiros.</p>
+						 </div>	
+						 <div>
+						 	<p:graphicImage value="resources/imagens/img-info.png"/>
+						 </div>
+					</div>
+					<div class="ui-grid-col-4">
+						<p:panel style="background-color:#F3F9FE;border-radius:10px; box-shadow: 5px 5px 5px 2px rgba(204,204,204,1);
+							border: solid 1px #DDDDDD;">
+							
+							<div id="div-img-perfil-login">
+								<p:graphicImage styleClass="img-perfil" value="resources/imagens/imgPerfil.png"/>
+							</div>
+							
+							<h:panelGrid columns="1" cellpadding="5" width="95%">
+								<p:inputText placeholder="login..." style="width:100%; padding:11px;"/>
+								<p:password placeholder="senha..." style="width:100%; padding:11px;"/>
+								
+								<p:row>
+									<p:selectBooleanCheckbox id="lembrar"/> 
+									<h:outputText for="lembrar" value=" Lembrar credenciais" />
+       							</p:row>
+							</h:panelGrid>
+							<p:commandButton styleClass="BlueButton" style="width:100%; margin-top:10px;" value="Entrar"/>
+							<div style="text-align: center;  margin-top:20px;">
+								<p:commandLink><u>Esqueceu a senha ?</u></p:commandLink>
+							</div>
+						</p:panel>
+					</div>
+				</div>
+			</div>
+		</div>
 
+	
+	</div>
 
 
 
@@ -68,6 +91,11 @@
 	<h:outputStylesheet name="css/spark-layout#{themeView.color}.css"
 		library="spark-layout" />
 	<!--###################################################################################################-->
+
+	<div class="footer">
+		® Sistema de controle financeiro<br/>
+		<sup>Versão beta 1.0</sup>
+	</div>
 
 </h:body>
 </html>
