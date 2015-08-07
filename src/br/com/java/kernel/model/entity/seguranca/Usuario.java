@@ -7,9 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.com.java.kernel.model.entity.generico.GenEntidade;
@@ -58,8 +56,8 @@ public class Usuario extends GenEntidade {
 	 * MAPEAMENTO RELACIONAL ENTRE ENTIDADES  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 	 */
 	
-	@ManyToOne
-	private Perfil perfil;
+	@ManyToMany(mappedBy = "listaUsuario")
+	private List<Perfil> listaPerfil;
 	
 	/**
 	 * GET e SET  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -143,14 +141,14 @@ public class Usuario extends GenEntidade {
 		this.senha = senha;
 	}
 
-	public Perfil getPerfil() {
-		return perfil;
+	public List<Perfil> getListaPerfil() {
+		return listaPerfil;
 	}
 
-	public void setPerfil(Perfil perfil) {
-		this.perfil = perfil;
+	public void setListaPerfil(List<Perfil> listaPerfil) {
+		this.listaPerfil = listaPerfil;
 	}
-
+	
 	
 
 }

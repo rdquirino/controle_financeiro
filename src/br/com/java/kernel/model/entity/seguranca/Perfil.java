@@ -1,5 +1,6 @@
 package br.com.java.kernel.model.entity.seguranca;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -7,9 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.com.java.kernel.model.entity.generico.GenEntidade;
@@ -20,7 +21,7 @@ import br.com.java.kernel.model.entity.generico.GenEntidade;
  * 
  */
 @Entity
-@Table(name="USUARIO")
+@Table(name="PERFIL")
 public class Perfil extends GenEntidade {
 	
 	private static final long serialVersionUID = 1L;
@@ -58,8 +59,17 @@ public class Perfil extends GenEntidade {
 	 * MAPEAMENTO RELACIONAL ENTRE ENTIDADES  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 	 */
 	
-	@ManyToOne
-	private Perfil perfil;
+	@ManyToMany
+	@JoinTable(
+		name="PERFIL_USUARIO"
+		, joinColumns={
+			@JoinColumn(name="ID_PERFIL")
+			}
+		, inverseJoinColumns={
+			@JoinColumn(name="ID_USUARIO")
+			}
+		)
+	private List<Usuario> listaUsuario = new ArrayList<Usuario>();
 	
 
 	/**
@@ -144,15 +154,13 @@ public class Perfil extends GenEntidade {
 		this.senha = senha;
 	}
 
-	public Perfil getPerfil() {
-		return perfil;
+	public List<Usuario> getListaUsuario() {
+		return listaUsuario;
 	}
 
-	public void setPerfil(Perfil perfil) {
-		this.perfil = perfil;
+	public void setListaUsuario(List<Usuario> listaUsuario) {
+		this.listaUsuario = listaUsuario;
 	}
 
 	
-	
-
 }
