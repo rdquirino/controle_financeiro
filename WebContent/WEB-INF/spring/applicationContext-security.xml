@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/security
+   	http://www.springframework.org/schema/security/spring-security.xsd ">
+
+	<context:annotation-config />
+
+
+	<!-- ******************* AUTHENTICATION PROVIDER ****************** -->
+	<security:http pattern="/resources/**" security="none" />
+	<security:http pattern="/resources/css/**" security="none" />
+	<security:http pattern="/resources/css/conta/**" security="none" />
+	<security:http pattern="/resources/css/despesa/**" security="none" />
+	<security:http pattern="/resources/css/imagens/**" security="none" />
+	<security:http pattern="/resources/imagens/**" security="none" />
+	
+
+	<security:http pattern="/javax.faces.resource/**" security="none" />
+
+
+	<security:http use-expressions="true" auto-config="true">
+
+		<security:intercept-url pattern="/paginas/**" access="isAuthenticated()" />
+		<security:intercept-url pattern="/**" access="permitAll" />
+		
+		<security:form-login login-page="/login.xhtml" authentication-failure-url="/paginaErro404.xhtml" />
+		<security:access-denied-handler
+			error-page="/paginaErro402.xhtml" />
+	</security:http>
+
+	<bean id="userDetailsService"
+		class="br.com.java.kernel.model.entity.seguranca.UserDetailsServiceImpl">
+	</bean>
+
+	<security:authentication-manager alias="authenticationManager">
+		<security:authentication-provider
+			user-service-ref="userDetailsService" />
+	</security:authentication-manager>
+
+</beans>

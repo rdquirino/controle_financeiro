@@ -9,10 +9,10 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
 		<class>br.com.java.kernel.model.entity.generico.GenEntidade</class>
-		<class>br.com.java.kernel.model.entity.seguranca.Usuario</class>
-		<class>br.com.java.kernel.model.entity.seguranca.Perfil</class>
 		<class>br.com.java.kernel.model.entity.Endereco</class>
 		<class>br.com.java.kernel.model.entity.Conta</class>
+		<class>br.com.java.kernel.model.entity.Usuario</class>
+		<class>br.com.java.kernel.model.entity.Perfil</class>
 		<class>br.com.java.kernel.model.entity.Despesa</class>
 
 	<!-- ######## CONFIGURAÇÃO BANCO DE DADOS MYSQL ######-->
@@ -20,7 +20,7 @@
 			<property name="hibernate.connection.username" value="root" />
 			<property name="hibernate.connection.password" value="" />
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/controle_financeiro" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/financeiro" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />

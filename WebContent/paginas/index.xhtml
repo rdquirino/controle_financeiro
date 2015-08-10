@@ -5,21 +5,21 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<link href="resources/css/conta/conta.css" rel="stylesheet" />
-	<link href="resources/css/theme-principal.css" rel="stylesheet" />
-	<link href="resources/css/index.css" rel="stylesheet" />
-	<link href="resources/css/estilo-principal.css" rel="stylesheet" />
-	<link href="resources/css/menuTop.css" rel="stylesheet" />
+	<link href="../resources/css/conta/conta.css" rel="stylesheet" />
+	<link href="../resources/css/theme-principal.css" rel="stylesheet" />
+	<link href="../resources/css/index.css" rel="stylesheet" />
+	<link href="../resources/css/estilo-principal.css" rel="stylesheet" />
+	<link href="../resources/css/menuTop.css" rel="stylesheet" />
 	
 	<!-- ###################### STYLE BOOTSTRAP #################-->
-	<link href="resources/bootstrap-dist/css/bootstrap-theme.css" rel="stylesheet" />
-	<link href="resources/bootstrap-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
-	<link href="resources/bootstrap-dist/css/bootstrap.css" rel="stylesheet" />
-	<link href="resources/bootstrap-dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../resources/bootstrap-dist/css/bootstrap-theme.css" rel="stylesheet" />
+	<link href="../resources/bootstrap-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+	<link href="../resources/bootstrap-dist/css/bootstrap.css" rel="stylesheet" />
+	<link href="../resources/bootstrap-dist/css/bootstrap.min.css" rel="stylesheet" />
 	
-	<script src="resources/bootstrap-dist/js/bootstrap.js"></script>
-	<script src="resources/bootstrap-dist/js/bootstrap.min.js"></script>
-	<script src="resources/bootstrap-dist/js/jquery.min.js"></script>
+	<script src="../resources/bootstrap-dist/js/bootstrap.js"></script>
+	<script src="../resources/bootstrap-dist/js/bootstrap.min.js"></script>
+	<script src="../resources/bootstrap-dist/js/jquery.min.js"></script>
 	
 	<f:facet name="first">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -30,7 +30,7 @@
 	</f:facet>
 	<title>Controle Financeiro</title>
 
-	<h:outputScript name="js/layout.js" library="spark-layout" />
+	<h:outputScript name="../js/layout.js" library="spark-layout" />
 
 	<ui:insert name="head" />
 </h:head>
@@ -38,7 +38,7 @@
 <div style="border-bottom: solid 40px #F2F5F9;">
 			
 		<!-- ############ MENU TOP ############# -->
-		<ui:include src="/menuTop.xhtml" />
+		<ui:include src="menuTop.xhtml" />
 		
 		<!-- ############### CORPO DA PAGINA ########### -->
 		<div>
@@ -47,7 +47,7 @@
 				<p:tab title="Cadastro de contas">
 					<p:tabView id="tabViewIndexConta">
 						<p:tab title="Controle de conta">
-							<ui:include src="paginas/conta/indexConta.xhtml" />
+							<ui:include src="conta/indexConta.xhtml" />
 						</p:tab>
 					</p:tabView>
 				</p:tab>
@@ -55,7 +55,7 @@
 				<p:tab id="tabDespesa" title="Controle de despesas">
 					<p:tabView id="tabViewIndexDespesa">
 						<p:tab title="Despesas">
-							<ui:include src="paginas/despesa/indexDespesa.xhtml"/>
+							<ui:include src="despesa/indexDespesa.xhtml"/>
 						</p:tab>
 					</p:tabView>
 				</p:tab>
@@ -66,7 +66,7 @@
 		<!-- ############ MENU DOCK ############### -->
 		<h:form>
 			<p:dock position="bottom" proximity="50">
-			    <p:menuitem value="Calculadora" action="#{sistemaController.actionPerformed()}" icon="resources/imagens/ico-calc.png"/>
+			    <p:menuitem value="Calculadora" action="#{sistemaController.actionPerformed()}" icon="../resources/imagens/ico-calc.png"/>
 			    <p:menuitem value="Calendario" icon="resources/imagens/icon-calen.png" url="#"/>
 			    <p:menuitem value="Graficos" icon="resources/imagens/icon-graf.png" url="#"/>
 			    <p:menuitem value="Contas" icon="resources/imagens/icon-cont.png" url="#"/>

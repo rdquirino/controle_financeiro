@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.java.kernel.model.dao.DaoGenerico;
 import br.com.java.kernel.model.dao.UsuarioDao;
-import br.com.java.kernel.model.entity.seguranca.Usuario;
+import br.com.java.kernel.model.entity.Usuario;
 import br.com.java.kernel.model.service.UsuarioService;
 
 @Component
@@ -49,6 +49,17 @@ public class UsuarioServiceImpl implements UsuarioService {
         String query = "SELECT u FROM Usuario u WHERE u.dataDelecao is null AND u.email=:email";
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("email", email);
+        usuario = getUsuarioDao().pesqParam(query , params);
+        return usuario;
+	}
+	
+	
+	@Override
+	public Usuario buscaPorLogin(String login) {
+		Usuario usuario = null;
+		  String query = "SELECT u FROM Usuario u WHERE u.login=:login";
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("login", login);
         usuario = getUsuarioDao().pesqParam(query , params);
         return usuario;
 	}

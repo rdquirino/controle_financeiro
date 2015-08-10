@@ -11,7 +11,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.com.java.kernel.model.entity.generico.GenEntidade;
-import br.com.java.kernel.model.entity.seguranca.Usuario;
 
 
 /**

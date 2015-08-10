@@ -53,27 +53,30 @@
 						 </div>
 					</div>
 					<div class="ui-grid-col-4">
-						<p:panel style="background-color:#F3F9FE;border-radius:10px; box-shadow: 5px 5px 5px 2px rgba(204,204,204,1);
-							border: solid 1px #DDDDDD;">
-							
-							<div id="div-img-perfil-login">
-								<p:graphicImage styleClass="img-perfil" value="resources/imagens/imgPerfil.png"/>
-							</div>
-							
-							<h:panelGrid columns="1" cellpadding="5" width="95%">
-								<p:inputText placeholder="login..." style="width:100%; padding:11px;"/>
-								<p:password placeholder="senha..." style="width:100%; padding:11px;"/>
+						<h:form>
+							<p:panel style="background-color:#F3F9FE;border-radius:10px; box-shadow: 5px 5px 5px 2px rgba(204,204,204,1);
+								border: solid 1px #DDDDDD;">
 								
-								<p:row>
-									<p:selectBooleanCheckbox id="lembrar"/> 
-									<h:outputText for="lembrar" value=" Lembrar credenciais" />
-       							</p:row>
-							</h:panelGrid>
-							<p:commandButton styleClass="BlueButton" style="width:100%; margin-top:10px;" value="Entrar"/>
-							<div style="text-align: center;  margin-top:20px;">
-								<p:commandLink><u>Esqueceu a senha ?</u></p:commandLink>
-							</div>
-						</p:panel>
+								<div id="div-img-perfil-login">
+									<p:graphicImage styleClass="img-perfil" value="resources/imagens/imgPerfil.png"/>
+								</div>
+								
+								<h:panelGrid columns="1" cellpadding="5" width="95%">
+									<p:inputText placeholder="login..." value="#{loginController.userName}" style="width:100%; padding:11px;"/>
+									<p:password placeholder="senha..." value="#{loginController.password}" style="width:100%; padding:11px;"/>
+									
+									<p:row>
+										<p:selectBooleanCheckbox id="lembrar"/> 
+										<h:outputText for="lembrar" value=" Lembrar credenciais" />
+	       							</p:row>
+								</h:panelGrid>
+								<p:commandButton styleClass="BlueButton" action="#{loginController.login()}" style="width:100%; margin-top:10px;" value="Entrar"/>
+								<div style="text-align: center;  margin-top:20px;">
+									<p:commandLink><u>Esqueceu a senha ?</u></p:commandLink>
+								</div>
+								<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+							</p:panel>
+						</h:form>
 					</div>
 				</div>
 			</div>

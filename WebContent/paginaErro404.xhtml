@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link href="css/theme-principal.css" rel="stylesheet" />
+	<link href="resources/css/estilo-principal.css" rel="stylesheet" />
+
+
+	<f:facet name="first">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+	</f:facet>
+	<title>Teste</title>
+
+	<h:outputScript name="js/layout.js" library="spark-layout" />
+
+	<ui:insert name="head" />
+</h:head>
+<h:body>
+	<div style="text-align: center; font-size: 3em;">
+	<h1>ERRO 404</h1><br>
+	</br>
+	<h2>Acesso negado</h2>
+	</div>
+
+
+	<!-- #######################   Inclusão dos estido do tema do primeFaces spark   #######################-->
+	<h:outputStylesheet name="css/core-layout.css" library="spark-layout" />
+	<h:outputStylesheet name="css/font-awesome.css" library="spark-layout" />
+	<h:outputStylesheet name="css/animate.css" library="spark-layout" />
+	<h:outputStylesheet name="css/spark-layout#{themeView.color}.css"
+		library="spark-layout" />
+	<!--###################################################################################################-->
+
+	<div class="footer">
+		® Sistema de controle financeiro<br/>
+		<sup>Versão beta 1.0</sup>
+	</div>
+
+</h:body>
+</html>

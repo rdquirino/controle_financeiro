@@ -1,5 +1,7 @@
-package br.com.java.kernel.model.entity.seguranca;
+package br.com.java.kernel.model.entity;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -8,18 +10,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.GrantedAuthorityImpl;
+import org.springframework.security.core.userdetails.UserDetails;
 import br.com.java.kernel.model.entity.generico.GenEntidade;
-
 
 /**
  * Entidade que faz a criação da tabela USUARIO no banco de dados 
  * 
  */
+@SuppressWarnings("deprecation")
 @Entity
 @Table(name="USUARIO")
-public class Usuario extends GenEntidade {
+@NamedQueries({
+	  @NamedQuery(name = "Usuario.buscaPorLogin", query = "SELECT usu FROM Usuario usu WHERE usu.login = :username")})
+public class Usuario extends GenEntidade implements UserDetails{
 	
 	private static final long serialVersionUID = 1L;
 
@@ -28,14 +38,14 @@ public class Usuario extends GenEntidade {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idUsuario;
 
-	@Column(name="ATIVO")
-	private boolean ativo;
-
 	@Column(name="EMAIL")
 	private String email;
 	
+	@Column(name="ATIVO")
+	private Boolean ativo;
+
 	@Column(name="TERMOS")
-	private boolean termos;
+	private Boolean termos;
 	
 	@Column(name="FOTO")
 	private byte[] foto;
@@ -52,12 +62,15 @@ public class Usuario extends GenEntidade {
 	@Column(name="SENHA")
 	private String senha;
 
+	
+	
+	
 	/**
 	 * MAPEAMENTO RELACIONAL ENTRE ENTIDADES  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 	 */
 	
 	@ManyToMany(mappedBy = "listaUsuario")
-	private List<Perfil> listaPerfil;
+	private List<Perfil> listaPerfil = new ArrayList<Perfil>();
 	
 	/**
 	 * GET e SET  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -74,15 +87,6 @@ public class Usuario extends GenEntidade {
 	public void setIdUsuario(Integer idUsuario) {
 		this.idUsuario = idUsuario;
 	}
-
-	public boolean isAtivo() {
-		return ativo;
-	}
-
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
-	}
-
 	
 	public byte[] getFoto() {
 		return foto;
@@ -92,21 +96,28 @@ public class Usuario extends GenEntidade {
 		this.foto = foto;
 	}
 
-	
-	public boolean isTermos() {
-		return termos;
-	}
-
-	public void setTermos(boolean termos) {
-		this.termos = termos;
-	}
-
 	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
+
+	public Boolean getTermos() {
+		return termos;
+	}
+
+	public void setTermos(Boolean termos) {
+		this.termos = termos;
 	}
 
 	public String getLogin() {
@@ -148,6 +159,51 @@ public class Usuario extends GenEntidade {
 	public void setListaPerfil(List<Perfil> listaPerfil) {
 		this.listaPerfil = listaPerfil;
 	}
+
+	@Transient
+	public Collection<GrantedAuthority> getAuthorities() {
+		List<GrantedAuthority> result = new ArrayList<GrantedAuthority>();
+		for (Perfil p : listaPerfil)
+			result.add(new GrantedAuthorityImpl(p.getNome()));
+		return result;
+	}
+	
+	@Override
+	@Transient
+	public String getPassword() {
+		return this.senha;
+	}
+
+	@Override
+	@Transient
+	public String getUsername() {
+		return this.login;
+	}
+
+	@Override
+	@Transient
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	@Transient
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	@Transient
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	@Transient
+	public boolean isEnabled() {
+		return true;
+	}
+	
 	
 	
 

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import br.com.java.kernel.model.entity.seguranca.Usuario;
+import br.com.java.kernel.model.entity.Usuario;
 import br.com.java.kernel.model.service.UsuarioService;
 import br.com.java.kernel.util.EmailUtil;
 import br.com.java.kernel.util.Md5Util;
@@ -32,12 +32,8 @@ public class RecuperaSenhaController {
 			String novaSenha = RandomStringUtils.randomAlphabetic(SENHA_LENGHT);
 			boolean envioOk = emailUtil.sendEmail("Sua nova senha é: " + novaSenha, "Recuperação de senha", email);
 			if (envioOk) {
-				try {
-					usuario.setSenha(Md5Util.hashMd5(novaSenha));
-					usuarioService.atualizaUsuario(usuario);
-				} catch (NoSuchAlgorithmException e) {
-					e.printStackTrace();
-				}
+				usuario.setSenha("");
+				usuarioService.atualizaUsuario(usuario);
 			}
 		}
 		return "";
